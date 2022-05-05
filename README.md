@@ -46,7 +46,8 @@ Comme pour l'utilisation de ZIG SIM seul, il faut s'assurer que l'ordinateur et 
 
 <details>
   <summary> Code d'exemple Processing : osc2osc </summary>
-  ```
+
+  ```java
 import oscP5.*;
 import netP5.*;
 
@@ -103,7 +104,7 @@ void oscEvent(OscMessage theOscMessage) {
     }
   }
 }
-```
+``` 
 
 </details>
 
