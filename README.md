@@ -1,4 +1,4 @@
-# Uiliser de l'OSC dans MadMapper
+# Utiliser de l'OSC dans MadMapper
 
 Préface : 
 c'est mieux de maîtriser un peu MadMapper ou au moins d'avoir lu le tuto [MadMapper_2spi](https://github.com/LucieMrc/Madmapper_2spi).
