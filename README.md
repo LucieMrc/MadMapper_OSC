@@ -45,7 +45,7 @@ La Target range est l'étendue de valeurs du paramètre controlé (ici entre 0 e
 Comme pour l'utilisation de ZIG SIM seul, il faut s'assurer que l'ordinateur et le téléphone sont sur le même réseau wifi et que l'adresse IP dans ZIG SIM est celle de l'ordinateur.
 
 <details>
-  <summary> Code d'exemple Processing : osc2osc </summary>
+  <summary> ▶️ Code d'exemple Processing : osc2osc </summary>
 
   ```java
 import oscP5.*;
