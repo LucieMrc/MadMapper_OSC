@@ -1,7 +1,7 @@
 # Uiliser de l'OSC dans MadMapper
 
 Préface : 
-C'est mieux de maîtriser un peu MadMapper ou d'avoir lu le tuto [MadMapper_2spi](https://github.com/LucieMrc/Madmapper_2spi).
+c'est mieux de maîtriser un peu MadMapper ou au moins d'avoir lu le tuto [MadMapper_2spi](https://github.com/LucieMrc/Madmapper_2spi).
 
 Le but est de contrôler différents paramètres de MadMapper avec un téléphone communiquant en OSC, grâce l'application ZIG SIM.
 
@@ -29,7 +29,7 @@ Ensuite, dans MadMapper, pour contrôler par exemple la valeur de la rotation de
 
 ![Screenshot de Madmapper](./images/screen14.png)
 
-On arrive ainsi dans la fenêtre Control List, dans l'onglet OSC, avec la liste de contrôle (qui ne contient ici que celui qu'on vient de créer).
+On arrive ainsi dans la fenêtre `Control List`, dans l'onglet OSC, avec la liste de contrôle (qui ne contient ici que celui qu'on vient de créer).
 
 Pour récupérer par exemple la première donnée, x, de l'accéléromètre du téléphone, on sélectionne "/lucie/accel/#1" (ici "lucie" le nom du téléphone).
 En cliquant sur `Learn` en déplaçant le téléphone pour obtenir des valeurs, on obtient la plage de valeurs que cette donnée prend, qui est ensuite mise à l'échelle sur la plage de valeur de la rotation de la texture.
@@ -48,16 +48,39 @@ Dans le code d'exemple *osc2osc*, le port d'arrivée des messages doit être le 
 
 ![Screenshot de Processing](./images/screen16.png)
 
-Une fois qu'on a assuré la liaison ZIG SIM-Processing, on peux choisir la valeur qu'on récupère, à la ligne 32 : `/lucie/compass` où lucie est le nom du téléphone et compass le nom de la valeur dans ZIG SIM.
+Une fois qu'on a assuré la liaison ZIG SIM-Processing, on peux choisir la valeur qu'on récupère, à la ligne 32 : */lucie/compass* où lucie est le nom du téléphone et compass le nom de la valeur dans ZIG SIM.
 
 Si on reçoit ce message, on assigne sa valeur à la variable *cvalue*, puis on map cette valeur de manière qu'elle soit entre 0 et 1 pour correspondre à la Source range par défaut de MadMapper. 
-La valeur mappée est assignée à la variable *send*, qui est envoyée lorsque qu'elle change.
+La valeur mappée est assignée à la variable *send*, qui est envoyée à chaque fois qu'elle change (= que la valeur récupérée *send* est différente de la valeur précédente *psend*).
 
 ![Screenshot de Processing](./images/screen17.png)
 
-On peux 
+Grâce à la fonction *sendOSC()*, on envoit la valeur *send* qu'on nomme */compas*.
+On peux envoyer autant de messages que l'on veux avec des valeurs différentes, en récupérant les autres données de ZIG SIM.
 
 ![Screenshot de Processing](./images/screen18.png)
+
+Dans le menu `Preferences` de MadMapper, il faut vérifier que l'OSC Input Port est bien le même que celui précisé dans le setup de Processing, ici 9001 :
+
+![Screenshot de Processing](./images/screen19.png)
+
+Il faut laisser l'OSC Feedback IP en auto et ne pas autoriser Bonjour Discovery :
+
+![Screenshot de Processing](./images/screen20.png)
+
+Ensuite, pour contrôler la valeur de la rotation de notre texture vidéo, on clic-droit sur le slider rotation > `Add Control` > `OSC`.
+
+![Screenshot de Madmapper](./images/screen14.png)
+
+On arrive ainsi dans la fenêtre `Control List`, dans l'onglet OSC, avec la liste de contrôle (qui ne contient ici que celui qu'on vient de créer).
+
+Pour récupérer notre message */compas* de Processing, on peux soit écrire directement le nom du message dans l'OSC address, soit cliquer sur `Learn` afin de détecter et lister les messages reçus sur le port 9001.
+
+![Screenshot de Madmapper](./images/screen21.png)
+
+La Source range (= l'étendue de valeurs) par défaut est entre 0 et 1, comme notre valeur mappée dans Processing.
+
+La Target range est l'étendue de valeurs du paramètre controlé (ici entre 0 et 360° pour la rotation).
 
 ## Pour aller + loin
 
