@@ -20,7 +20,7 @@ void setup() {
    * and the port of the remote location address are the same, hence you will
    * send messages back to this sketch.
    */
-  myRemoteLocation = new NetAddress("127.0.0.1", 9001);
+  myRemoteLocation = new NetAddress("127.0.0.1", 9001); //port d'envoi des messages : 9001
 }
 
 void draw() {
@@ -50,6 +50,8 @@ void oscEvent(OscMessage theOscMessage) {
       
       // envoie le message
       sendOSC();
+      
+      //la valeur devient la valeur précédente
       psend = send;
     }
   }

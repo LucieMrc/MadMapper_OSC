@@ -3,9 +3,9 @@
 Préface : 
 c'est mieux de maîtriser un peu MadMapper ou au moins d'avoir lu le tuto [MadMapper_2spi](https://github.com/LucieMrc/Madmapper_2spi).
 
-Le but est de contrôler différents paramètres de MadMapper avec un téléphone communiquant en OSC, grâce l'application ZIG SIM.
+**Ou comment contrôler différents paramètres de MadMapper avec un téléphone communiquant en OSC, grâce l'application ZIG SIM.**
 
-Il faut donc au préalable installer ZIG SIM, et connecter le téléphone et l'ordinateur au même réseau wifi. 
+Pré-requis : avoir installé ZIG SIM sur son tel, et avoir connecté le téléphone et l'ordinateur au même réseau wifi. 
 
 Il est possible de récupérer directement les données depuis ZIG SIM, même si ce n'est pas idéal, ou de passer par Processing pour affiner le processus.
 
